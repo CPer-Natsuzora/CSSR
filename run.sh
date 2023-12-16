@@ -3,11 +3,11 @@ for dataset in cifar10 svhn tinyimagenet
 do
     for s in a b c d e
     do
-        mkdir ./save/linear_$dataset_$s
+        mkdir -p ./save/linear_$dataset_$s
         python3 main.py --gpu 0 --ds ./exps/$dataset/spl_$s.json --config ./configs/linear/$dataset.json --save linear_$dataset_$s --method cssr --test_interval 2
-        mkdir ./save/pcssr_$dataset_$s
+        mkdir -p ./save/pcssr_$dataset_$s
         python3 main.py --gpu 0 --ds ./exps/$dataset/spl_$s.json --config ./configs/pcssr/$dataset.json --save pcssr_$dataset_$s --method cssr --test_interval 2
-        mkdir ./save/rcssr_$dataset_$s
+        mkdir -p ./save/rcssr_$dataset_$s
         python3 main.py --gpu 0 --ds ./exps/$dataset/spl_$s.json --config ./configs/rcssr/$dataset.json --save rcssr_$dataset_$s --method cssr --test_interval 2
     done
 done
