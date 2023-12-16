@@ -8,7 +8,7 @@ class OSREvaluation():
     def __init__(self,test_loader) -> None:
         super().__init__()
         labels = test_loader.dataset.labels
-        self.test_labels = np.array(labels,np.int)
+        self.test_labels = np.array(labels,int)
         
         self.close_samples = self.test_labels >= 0
         self.close_samples_ct = np.sum(self.close_samples)
